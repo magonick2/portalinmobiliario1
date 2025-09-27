@@ -8,7 +8,7 @@ RUN dotnet restore
 # Copiar el resto del código
 COPY . ./
 RUN dotnet publish -c Release -o /app/publish
-
+git add Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
