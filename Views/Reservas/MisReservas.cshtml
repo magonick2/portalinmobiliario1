@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Reserva>
+@{
+    ViewData["Title"] = "Mis Reservas";
+}
+
+<div class="container">
+    <h2>Mis Reservas</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No tienes reservas realizadas.
+            <a asp-controller="Catalogo" asp-action="Index" class="alert-link">Explorar inmuebles</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var reserva in Model)
+            {
+                <div class="col-md-6 mb-3">
+                    <div class="card @(reserva.EstaActiva ? "border-success" : "border-secondary")">
+                        <div class="card-body">
+                            <h5 class="card-title">@reserva.Inmueble.Titulo</h5>
+                            <p class="card-text">
+                                <small class="text-muted">@reserva.Inmueble.Direccion</small><br />
+                                <strong>Creada:</strong> @reserva.FechaCreacion.ToString("dd/MM/yyyy HH:mm")<br />
+                                <strong>Expira:</strong> @reserva.FechaExpiracion.ToString("dd/MM/yyyy HH:mm")<br />
+                                <span class="badge @(reserva.EstaActiva ? "bg-success" : "bg-secondary")">
+                                    @(reserva.EstaActiva ? "Activa" : "Expirada")
+                                </span>
+                            </p>
+
+                            <h5 class="text-primary">$@reserva.Inmueble.Precio.ToString("N0")</h5>
+
+                            <a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@reserva.InmuebleId"
+                               class="btn btn-sm btn-outline-primary">Ver inmueble</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -1,9 +1,12 @@
 ﻿@model portalinmobiliario1.Models.Inmueble
 @{
     ViewData["Title"] = Model.Titulo;
+    // Verificar si hay reserva activa para este inmueble
+    var tieneReservaActiva = Model.Reservas.Any(r => r.EstaActiva);
 }
 
 <div class="container">
+    <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
@@ -13,6 +16,7 @@
     </nav>
 
     <div class="row">
+        <!-- Imagen principal -->
         <div class="col-lg-8">
             @if (!string.IsNullOrEmpty(Model.Imagen))
             {
@@ -27,6 +31,7 @@
                 </div>
             }
 
+            <!-- Información detallada -->
             <div class="mt-4">
                 <h1>@Model.Titulo</h1>
                 <div class="mb-3">
@@ -63,19 +68,46 @@
             </div>
         </div>
 
+        <!-- Panel lateral -->
         <div class="col-lg-4">
-            <div class="card shadow">
+            <div class="card shadow sticky-top">
                 <div class="card-body">
                     <h2 class="text-success mb-3">$@Model.Precio.ToString("N0")</h2>
 
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-primary btn-lg">
-                            Agendar Visita
-                        </button>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <!-- Botón Agendar Visita -->
+                            <a asp-controller="Visitas" asp-action="Agendar" asp-route-inmuebleId="@Model.Id"
+                               class="btn btn-primary btn-lg">
+                                Agendar Visita
+                            </a>
 
-                        <button type="button" class="btn btn-success">
-                            Reservar Inmueble
-                        </button>
+                            <!-- Botón Reservar o mensaje si ya está reservado -->
+                            @if (!tieneReservaActiva)
+                            {
+                                <form asp-controller="Reservas" asp-action="Crear" method="post" class="d-grid">
+                                    <input name="inmuebleId" type="hidden" value="@Model.Id" />
+                                    <button type="submit" class="btn btn-success"
+                                            onclick="return confirm('¿Confirmas la reserva por 48 horas?')">
+                                        Reservar Inmueble
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="alert alert-warning">
+                                    <small>Este inmueble ya tiene una reserva activa.</small>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-muted text-center">
+                                <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión</a>
+                                para agendar visitas o reservar.
+                            </p>
+                        }
 
                         <hr>
 

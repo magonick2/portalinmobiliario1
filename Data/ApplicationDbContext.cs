@@ -104,7 +104,20 @@ namespace portalinmobiliario1.Data
                     Precio = 350000m,
                     Activo = true
                 }
+
             );
+            builder.Entity<Visita>()
+    .HasOne<Inmueble>()
+    .WithMany()
+    .HasForeignKey(v => v.InmuebleId)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            // Relaciones para Reservas  
+            builder.Entity<Reserva>()
+                .HasOne<Inmueble>()
+                .WithMany()
+                .HasForeignKey(r => r.InmuebleId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

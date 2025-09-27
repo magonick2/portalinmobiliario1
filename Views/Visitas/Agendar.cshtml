@@ -1,0 +1,73 @@
+﻿@model AgendarVisitaViewModel
+@{
+    ViewData["Title"] = "Agendar Visita";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Catalogo" asp-action="Index">Catálogo</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@Model.InmuebleId">@Model.InmuebleTitulo</a></li>
+            <li class="breadcrumb-item active">Agendar Visita</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Agendar Visita</h3>
+                    <small class="text-muted">@Model.InmuebleTitulo</small>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Agendar" method="post">
+                        <input asp-for="InmuebleId" type="hidden" />
+                        <input asp-for="InmuebleTitulo" type="hidden" />
+
+                        <div asp-validation-summary="All" class="alert alert-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="FechaInicio" class="form-label"></label>
+                                <input asp-for="FechaInicio" type="datetime-local" class="form-control" />
+                                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                                <div class="form-text">Horario laboral: 8:00 - 19:00</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="FechaFin" class="form-label"></label>
+                                <input asp-for="FechaFin" type="datetime-local" class="form-control" />
+                                <span asp-validation-for="FechaFin" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Notas" class="form-label"></label>
+                            <textarea asp-for="Notas" class="form-control" rows="3"
+                                      placeholder="Información adicional (opcional)"></textarea>
+                            <span asp-validation-for="Notas" class="text-danger"></span>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <strong>Información importante:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Las visitas solo pueden agendarse en horario laboral (8:00 - 19:00)</li>
+                                <li>Recibirás confirmación por email</li>
+                                <li>La visita debe durar al menos 30 minutos</li>
+                            </ul>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@Model.InmuebleId"
+                               class="btn btn-outline-secondary me-md-2">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">
+                                Agendar Visita
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

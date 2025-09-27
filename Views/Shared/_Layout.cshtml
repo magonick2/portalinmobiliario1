@@ -29,6 +29,18 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    Mi Cuenta
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Visitas" asp-action="MisVisitas">Mis Visitas</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Reservas" asp-action="MisReservas">Mis Reservas</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

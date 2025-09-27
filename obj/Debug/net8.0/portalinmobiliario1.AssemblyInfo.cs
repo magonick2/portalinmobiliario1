@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("portalinmobiliario1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80134c92024111eb25cd50372b93b29ab0a10b90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+490acdc90b9f27820dc435ee6325df943e640c2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("portalinmobiliario1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("portalinmobiliario1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
