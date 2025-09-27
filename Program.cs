@@ -25,7 +25,6 @@ builder.Services.AddMemoryCache();
 builder.Services.AddScoped<ICacheService, CacheService>();
 
 // Session básica
-builder.Services.AddSession();
 
 builder.Services.AddControllersWithViews();
 
@@ -37,7 +36,6 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
