@@ -184,3 +184,4 @@ C:\Users\gon15\OneDrive\Escritorio\parcialpro\portalinmobiliario1\portalinmobili
 C:\Users\gon15\OneDrive\Escritorio\parcialpro\portalinmobiliario1\portalinmobiliario1\obj\Debug\net8.0\portalinmobiliario1.pdb
 C:\Users\gon15\OneDrive\Escritorio\parcialpro\portalinmobiliario1\portalinmobiliario1\obj\Debug\net8.0\portalinmobiliario1.genruntimeconfig.cache
 C:\Users\gon15\OneDrive\Escritorio\parcialpro\portalinmobiliario1\portalinmobiliario1\obj\Debug\net8.0\ref\portalinmobiliario1.dll
+C:\Users\gon15\OneDrive\Escritorio\parcialpro\portalinmobiliario1\portalinmobiliario1\obj\Debug\net8.0\portalinmobiliario1.sourcelink.json

@@ -44,4 +44,4 @@ node_modules/
 # Visual Studio cache files
 *.cachefile
 *.VC.db
-*.VC.VC.opendb
+*.VC.VC.opendbgit add .

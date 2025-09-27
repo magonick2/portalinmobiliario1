@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PortalInmobiliario.Data;  // ← ESTE ES EL USING QUE FALTA
+using portalinmobiliario1.Data;  // ← ESTE ES EL USING QUE FALTA
 
 var builder = WebApplication.CreateBuilder(args);
 

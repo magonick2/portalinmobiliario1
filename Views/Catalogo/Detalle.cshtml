@@ -1,0 +1,100 @@
+﻿@model portalinmobiliario1.Models.Inmueble
+@{
+    ViewData["Title"] = Model.Titulo;
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Catalogo" asp-action="Index">Catálogo</a></li>
+            <li class="breadcrumb-item active">@Model.Titulo</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8">
+            @if (!string.IsNullOrEmpty(Model.Imagen))
+            {
+                <img src="@Model.Imagen" class="img-fluid rounded shadow" alt="@Model.Titulo" style="width: 100%; height: 400px; object-fit: cover;" />
+            }
+            else
+            {
+                <div class="bg-light rounded shadow d-flex align-items-center justify-content-center" style="width: 100%; height: 400px;">
+                    <div class="text-center">
+                        <span class="text-muted">Sin imagen disponible</span>
+                    </div>
+                </div>
+            }
+
+            <div class="mt-4">
+                <h1>@Model.Titulo</h1>
+                <div class="mb-3">
+                    <span class="badge bg-primary fs-6">@Model.Tipo</span>
+                    <span class="text-muted ms-3">@Model.Direccion, @Model.Ciudad</span>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-3 text-center">
+                        <div class="border rounded p-3">
+                            <h5 class="mt-2">@Model.Dormitorios</h5>
+                            <small class="text-muted">Dormitorios</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="border rounded p-3">
+                            <h5 class="mt-2">@Model.Banos</h5>
+                            <small class="text-muted">Baños</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="border rounded p-3">
+                            <h5 class="mt-2">@Model.MetrosCuadrados</h5>
+                            <small class="text-muted">Metros cuadrados</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="border rounded p-3">
+                            <h5 class="mt-2">@Model.Codigo</h5>
+                            <small class="text-muted">Código</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="text-success mb-3">$@Model.Precio.ToString("N0")</h2>
+
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary btn-lg">
+                            Agendar Visita
+                        </button>
+
+                        <button type="button" class="btn btn-success">
+                            Reservar Inmueble
+                        </button>
+
+                        <hr>
+
+                        <button type="button" class="btn btn-outline-primary">
+                            Guardar en favoritos
+                        </button>
+
+                        <button type="button" class="btn btn-outline-secondary">
+                            Compartir
+                        </button>
+                    </div>
+
+                    <div class="mt-4">
+                        <h6>Información de contacto</h6>
+                        <p class="text-muted mb-1">(01) 234-5678</p>
+                        <p class="text-muted">contacto@portalinmobiliario.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

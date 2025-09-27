@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using PortalInmobiliario.Models;
+using portalinmobiliario1.Models;
 
-namespace PortalInmobiliario.Data
+namespace portalinmobiliario1.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

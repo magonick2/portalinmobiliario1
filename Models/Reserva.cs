@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace PortalInmobiliario.Models
+namespace portalinmobiliario1.Models
 {
     public class Reserva
     {
