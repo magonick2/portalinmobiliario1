@@ -81,7 +81,7 @@ namespace portalinmobiliario1.Controllers
 
             // Obtener inmuebles con paginación
             var inmuebles = await query
-                .OrderBy(i => i.Precio)
+                .OrderBy(i => (double)i.Precio)
                 .Skip((model.Pagina - 1) * TamanoPagina)
                 .Take(TamanoPagina)
                 .ToListAsync();
