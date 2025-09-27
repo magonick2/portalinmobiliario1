@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4weBf8/Ov2M=",
+  "dgSpecHash": "RC7MVHx8Kt0=",
   "success": true,
   "projectFilePath": "C:\\Users\\gon15\\OneDrive\\Escritorio\\parcialpro\\portalinmobiliario1\\portalinmobiliario1\\portalinmobiliario1.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0\\microsoft.entityframeworkcore.analyzers.8.0.0.nupkg.sha512",
     "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.0\\microsoft.entityframeworkcore.design.8.0.0.nupkg.sha512",
+    "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\8.0.0\\microsoft.entityframeworkcore.inmemory.8.0.0.nupkg.sha512",
     "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.0\\microsoft.entityframeworkcore.relational.8.0.0.nupkg.sha512",
     "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\8.0.0\\microsoft.entityframeworkcore.sqlite.8.0.0.nupkg.sha512",
     "C:\\Users\\gon15\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\8.0.0\\microsoft.entityframeworkcore.sqlite.core.8.0.0.nupkg.sha512",

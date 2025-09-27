@@ -1,5 +1,4 @@
 ﻿using portalinmobiliario1.Models;
-using portalinmobiliario1.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace portalinmobiliario1.ViewModels

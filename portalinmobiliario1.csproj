@@ -14,14 +14,10 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.0" />
-
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
 		<!-- Para producción con PostgreSQL -->
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
 	</ItemGroup>
-	<ItemGroup>
-		<Content Include="app.db">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
+	
 
 </Project>
