@@ -4,7 +4,7 @@ using portalinmobiliario1.Data;
 using portalinmobiliario1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Environment.EnvironmentName = "Production";
 // Database - Simple
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? "DataSource=app.db;Cache=Shared";
@@ -32,15 +32,8 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Pipeline simple
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-}
-
+app.UseExceptionHandler("/Home/Error");
+app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
