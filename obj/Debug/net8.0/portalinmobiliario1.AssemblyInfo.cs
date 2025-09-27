@@ -12,11 +12,11 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-portalinmobiliario1-7df9b3bf-f2ef-4a50-807d-499465de9873")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-portalinmobiliario1-xxx")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("portalinmobiliario1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7de2f807891123e9ede06c2ed97a7345d3cffbb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3d2146738511023ae2d1f1ef34ff5866b8d9681")]
 [assembly: System.Reflection.AssemblyProductAttribute("portalinmobiliario1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("portalinmobiliario1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
