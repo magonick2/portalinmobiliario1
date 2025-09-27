@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Visita>
+@{
+    ViewData["Title"] = "Mis Visitas";
+}
+
+<div class="container">
+    <h2>Mis Visitas Agendadas</h2>
+    
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No tienes visitas agendadas.
+            <a asp-controller="Catalogo" asp-action="Index" class="alert-link">Explorar inmuebles</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var visita in Model)
+            {
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@visita.Inmueble.Titulo</h5>
+                            <p class="card-text">
+                                <small class="text-muted">@visita.Inmueble.Direccion</small><br/>
+                                <strong>Fecha:</strong> @visita.FechaInicio.ToString("dd/MM/yyyy HH:mm") - @visita.FechaFin.ToString("HH:mm")<br/>
+                                <span class="badge @(visita.Estado switch {
+                                    EstadoVisita.Solicitada => "bg-warning",
+                                    EstadoVisita.Confirmada => "bg-success", 
+                                    EstadoVisita.Cancelada => "bg-danger",
+                                    _ => "bg-secondary"
+                                })">@visita.Estado</span>
+                            </p>
+                            
+                            @if (!string.IsNullOrEmpty(visita.Notas))
+                            {
+                                <p class="card-text"><small><strong>Notas:</strong> @visita.Notas</small></p>
+                            }
+                            
+                            <a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@visita.InmuebleId" 
+                               class="btn btn-sm btn-outline-primary">Ver inmueble</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

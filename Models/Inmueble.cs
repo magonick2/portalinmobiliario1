@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PortalInmobiliario.Models
+namespace portalinmobiliario1.Models
 {
     public enum TipoInmueble
     {

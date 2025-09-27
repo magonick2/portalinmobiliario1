@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace PortalInmobiliario.Models
+namespace portalinmobiliario1.Models
 {
     public enum EstadoVisita
     {

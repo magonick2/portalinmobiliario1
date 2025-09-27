@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "Panel Broker";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>
+            <i class="bi bi-briefcase"></i> Panel Broker
+        </h1>
+        <div>
+            <span class="badge bg-success">Acceso autorizado</span>
+        </div>
+    </div>
+
+    <!-- Estadísticas generales -->
+    <div class="row mb-4">
+        <div class="col-md-2">
+            <div class="card text-center bg-primary text-white">
+                <div class="card-body">
+                    <i class="bi bi-house-door fs-1"></i>
+                    <h5>@ViewBag.TotalInmuebles</h5>
+                    <small>Total Inmuebles</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-center bg-success text-white">
+                <div class="card-body">
+                    <i class="bi bi-check-circle fs-1"></i>
+                    <h5>@ViewBag.InmueblesActivos</h5>
+                    <small>Activos</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-center bg-info text-white">
+                <div class="card-body">
+                    <i class="bi bi-calendar-event fs-1"></i>
+                    <h5>@ViewBag.VisitasHoy</h5>
+                    <small>Visitas Hoy</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-center bg-warning text-white">
+                <div class="card-body">
+                    <i class="bi bi-bookmark fs-1"></i>
+                    <h5>@ViewBag.ReservasActivas</h5>
+                    <small>Reservas Activas</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-center bg-danger text-white">
+                <div class="card-body">
+                    <i class="bi bi-clock fs-1"></i>
+                    <h5>@ViewBag.VisitasPendientes</h5>
+                    <small>Pendientes</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-center bg-dark text-white">
+                <div class="card-body">
+                    <i class="bi bi-person-check fs-1"></i>
+                    <h5>Broker</h5>
+                    <small>@User.Identity.Name</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acciones rápidas -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Acciones Rápidas</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <a asp-action="CrearInmueble" class="btn btn-primary w-100">
+                                <i class="bi bi-plus-circle"></i> Crear Inmueble
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a asp-action="Inmuebles" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-list"></i> Gestionar Inmuebles
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a asp-action="AgendaDelDia" class="btn btn-info w-100">
+                                <i class="bi bi-calendar-day"></i> Agenda del Día
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a asp-action="CrearBroker" class="btn btn-warning w-100">
+                                <i class="bi bi-person-plus"></i> Crear Broker
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visitas de hoy -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Visitas de Hoy</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.VisitasHoy != null && ((List<Visita>)ViewBag.VisitasHoy).Any())
+                    {
+                        @foreach (var visita in (List<Visita>)ViewBag.VisitasHoy)
+                        {
+                            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                <div>
+                                    <strong>@visita.FechaInicio.ToString("HH:mm")</strong> - 
+                                    @visita.Inmueble.Titulo
+                                    <br><small class="text-muted">@visita.Inmueble.Direccion</small>
+                                </div>
+                                <span class="badge @(visita.Estado switch {
+                                    EstadoVisita.Solicitada => "bg-warning",
+                                    EstadoVisita.Confirmada => "bg-success", 
+                                    EstadoVisita.Cancelada => "bg-danger",
+                                    _ => "bg-secondary"
+                                })">@visita.Estado</span>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">No hay visitas programadas para hoy.</p>
+                    }
+                    
+                    <div class="mt-3">
+                        <a asp-action="Visitas" class="btn btn-sm btn-outline-primary">Ver todas las visitas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservas activas -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Reservas Activas</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.ReservasActivas != null && ((List<Reserva>)ViewBag.ReservasActivas).Any())
+                    {
+                        @foreach (var reserva in (List<Reserva>)ViewBag.ReservasActivas)
+                        {
+                            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                <div>
+                                    <strong>@reserva.Inmueble.Titulo</strong>
+                                    <br><small class="text-muted">Expira: @reserva.FechaExpiracion.ToString("dd/MM HH:mm")</small>
+                                </div>
+                                <form asp-action="LiberarReserva" method="post" class="d-inline">
+                                    <input name="id" type="hidden" value="@reserva.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" 
+                                            onclick="return confirm('¿Liberar esta reserva?')">
+                                        Liberar
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">No hay reservas activas.</p>
+                    }
+                    
+                    <div class="mt-3">
+                        <a asp-action="Reservas" class="btn btn-sm btn-outline-primary">Ver todas las reservas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

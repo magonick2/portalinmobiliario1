@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using PortalInmobiliario.Models;
+using portalinmobiliario1.Models;
 
-namespace PortalInmobiliario.Data
+namespace portalinmobiliario1.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -104,7 +104,20 @@ namespace PortalInmobiliario.Data
                     Precio = 350000m,
                     Activo = true
                 }
+
             );
+            builder.Entity<Visita>()
+    .HasOne<Inmueble>()
+    .WithMany()
+    .HasForeignKey(v => v.InmuebleId)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            // Relaciones para Reservas  
+            builder.Entity<Reserva>()
+                .HasOne<Inmueble>()
+                .WithMany()
+                .HasForeignKey(r => r.InmuebleId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
