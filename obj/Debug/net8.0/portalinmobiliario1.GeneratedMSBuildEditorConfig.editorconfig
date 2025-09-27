@@ -24,6 +24,34 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/CrearBroker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXENyZWFyQnJva2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/CrearInmueble.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXENyZWFySW5tdWVibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/EditarInmueble.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXEVkaXRhcklubXVlYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/Inmuebles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXElubXVlYmxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/Reservas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXFJlc2VydmFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Broker/Visitas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJva2VyXFZpc2l0YXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Catalogo/Detalle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cRGV0YWxsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Shared/_BrokerLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ccm9rZXJMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gon15/OneDrive/Escritorio/parcialpro/portalinmobiliario1/portalinmobiliario1/Views/Shared/_LoginPartial.cshtml]

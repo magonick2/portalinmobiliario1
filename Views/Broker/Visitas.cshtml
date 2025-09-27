@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Visita>
+@{
+    ViewData["Title"] = "Gestión de Visitas";
+}
+
+<div class="container">
+    <h2>Gestión de Visitas</h2>
+    
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <a asp-action="AgendaDelDia" class="btn btn-info">
+                <i class="bi bi-calendar-day"></i> Agenda del Día
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha/Hora</th>
+                    <th>Inmueble</th>
+                    <th>Usuario</th>
+                    <th>Estado</th>
+                    <th>Notas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var visita in Model)
+                {
+                    <tr>
+                        <td>
+                            <strong>@visita.FechaInicio.ToString("dd/MM/yyyy")</strong><br/>
+                            <small>@visita.FechaInicio.ToString("HH:mm") - @visita.FechaFin.ToString("HH:mm")</small>
+                        </td>
+                        <td>
+                            <strong>@visita.Inmueble.Titulo</strong><br/>
+                            <small class="text-muted">@visita.Inmueble.Direccion</small>
+                        </td>
+                        <td>@visita.UsuarioId</td>
+                        <td>
+                            <span class="badge @(visita.Estado switch {
+                                EstadoVisita.Solicitada => "bg-warning",
+                                EstadoVisita.Confirmada => "bg-success", 
+                                EstadoVisita.Cancelada => "bg-danger",
+                                _ => "bg-secondary"
+                            })">@visita.Estado</span>
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(visita.Notas))
+                            {
+                                <small>@visita.Notas</small>
+                            }
+                            else
+                            {
+                                <em class="text-muted">Sin notas</em>
+                            }
+                        </td>
+                        <td>
+                            @if (visita.Estado == EstadoVisita.Solicitada)
+                            {
+                                <div class="btn-group btn-group-sm">
+                                    <form asp-action="ConfirmarVisita" method="post" class="d-inline">
+                                        <input name="id" type="hidden" value="@visita.Id" />
+                                        <button type="submit" class="btn btn-outline-success" title="Confirmar">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                    </form>
+                                    <form asp-action="CancelarVisita" method="post" class="d-inline">
+                                        <input name="id" type="hidden" value="@visita.Id" />
+                                        <button type="submit" class="btn btn-outline-danger" title="Cancelar"
+                                                onclick="return confirm('¿Cancelar esta visita?')">
+                                            <i class="bi bi-x"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">
+            <i class="bi bi-info-circle"></i> No hay visitas registradas.
+        </div>
+    }
+</div>

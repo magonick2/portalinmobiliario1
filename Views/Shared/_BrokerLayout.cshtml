@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Panel Broker</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-action="Index">
+                    <i class="bi bi-briefcase"></i> Panel Broker
+                </a>
+                <div class="navbar-nav">
+                    <a class="nav-link" asp-action="Index">Dashboard</a>
+                    <a class="nav-link" asp-action="Inmuebles">Inmuebles</a>
+                    <a class="nav-link" asp-action="Visitas">Visitas</a>
+                    <a class="nav-link" asp-action="Reservas">Reservas</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" asp-controller="Catalogo" asp-action="Index">Ver Catálogo</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Salir del Panel</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid mt-3">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

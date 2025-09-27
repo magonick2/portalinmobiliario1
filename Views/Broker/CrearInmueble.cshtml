@@ -1,0 +1,103 @@
+﻿@model Inmueble
+@{
+    ViewData["Title"] = "Crear Inmueble";
+}
+
+<div class="container">
+    <h2>Crear Inmueble</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="CrearInmueble" method="post">
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Codigo" class="form-label"></label>
+                        <input asp-for="Codigo" class="form-control" placeholder="Ej: DEP001" />
+                        <span asp-validation-for="Codigo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Tipo" class="form-label"></label>
+                        <select asp-for="Tipo" class="form-select">
+                            <option value="0">Departamento</option>
+                            <option value="1">Casa</option>
+                            <option value="2">Oficina</option>
+                            <option value="3">Local</option>
+                        </select>
+                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Titulo" class="form-label"></label>
+                    <input asp-for="Titulo" class="form-control" placeholder="Ej: Departamento moderno en el centro" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Ciudad" class="form-label"></label>
+                        <input asp-for="Ciudad" class="form-control" placeholder="Ej: Lima" />
+                        <span asp-validation-for="Ciudad" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Direccion" class="form-label"></label>
+                        <input asp-for="Direccion" class="form-control" placeholder="Ej: Av. Principal 123" />
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="Dormitorios" class="form-label"></label>
+                        <input asp-for="Dormitorios" type="number" class="form-control" min="0" max="10" />
+                        <span asp-validation-for="Dormitorios" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="Banos" class="form-label"></label>
+                        <input asp-for="Banos" type="number" class="form-control" min="1" max="10" />
+                        <span asp-validation-for="Banos" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="MetrosCuadrados" class="form-label"></label>
+                        <input asp-for="MetrosCuadrados" type="number" class="form-control" min="1" step="0.01" />
+                        <span asp-validation-for="MetrosCuadrados" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Precio" class="form-label"></label>
+                        <input asp-for="Precio" type="number" class="form-control" min="0.01" step="0.01" />
+                        <span asp-validation-for="Precio" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Imagen" class="form-label"></label>
+                        <input asp-for="Imagen" class="form-control" placeholder="URL de la imagen (opcional)" />
+                        <span asp-validation-for="Imagen" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="Activo" class="form-check-input" type="checkbox" checked />
+                        <label asp-for="Activo" class="form-check-label">
+                            Inmueble activo (visible en el catálogo)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a asp-action="Inmuebles" class="btn btn-outline-secondary me-md-2">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Crear Inmueble</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Reserva>
+@{
+    ViewData["Title"] = "Gestión de Reservas";
+}
+
+<div class="container">
+    <h2>Gestión de Reservas</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Inmueble</th>
+                    <th>Usuario</th>
+                    <th>Fecha Creación</th>
+                    <th>Fecha Expiración</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reserva in Model)
+                {
+                    <tr class="@(reserva.EstaActiva ? "" : "table-secondary")">
+                        <td>
+                            <strong>@reserva.Inmueble.Titulo</strong><br />
+                            <small class="text-muted">@reserva.Inmueble.Direccion</small>
+                        </td>
+                        <td>@reserva.UsuarioId</td>
+                        <td>@reserva.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@reserva.FechaExpiracion.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>
+                            <span class="badge @(reserva.EstaActiva ? "bg-success" : "bg-secondary")">
+                                @(reserva.EstaActiva ? "Activa" : "Expirada")
+                            </span>
+                        </td>
+                        <td>
+                            @if (reserva.EstaActiva)
+                            {
+                                <form asp-action="LiberarReserva" method="post" class="d-inline">
+                                    <input name="id" type="hidden" value="@reserva.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                            onclick="return confirm('¿Liberar esta reserva?')">
+                                        <i class="bi bi-unlock"></i> Liberar
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">
+            <i class="bi bi-info-circle"></i> No hay reservas registradas.
+        </div>
+    }
+</div>
