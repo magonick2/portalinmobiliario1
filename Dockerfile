@@ -1,7 +1,17 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-WORKDIR /app
-COPY . .
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copiar solo archivos de proyecto primero
+COPY *.csproj ./
 RUN dotnet restore
-RUN dotnet build -c Release
+
+# Copiar el resto del código
+COPY . ./
+RUN dotnet publish -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "run", "--urls", "http://0.0.0.0:8080"]
+ENTRYPOINT ["dotnet", "portalinmobiliario1.dll"]
